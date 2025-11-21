@@ -1,5 +1,22 @@
 stremio (4.4.168) stable; urgency=medium
 
+  * ci: add semantic-release configuration
+  * build: fix build on trixie
+  * build: add missing svg convert util to debian control
+  * build: add missing libqt5opengl in debian control file
+  * docs: add disclaimer about required non-free component
+  * fix: fix desktop entry icon in debian packaging
+  * build: add debian package files
+  * Merge pull request #414 from rodrinac/patch-2
+  * Update WINDOWS.md - Qt download link changed
+  * Merge pull request #412 from justin025/master
+  * Update .gitmodules
+  * Bump version to 4.4.168
+
+ -- drlkf <drlkf@drlkf.net>  Fri, 21 Nov 2025 20:17:57 +0100
+
+stremio (4.4.168) stable; urgency=medium
+
   * init
 
  -- Stremio Team <office@stremio.com>  Thu, 22 Feb 2024 00:49:49 +0100
