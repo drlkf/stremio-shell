@@ -5,7 +5,7 @@ Maintainer: Stremio Team <office@stremio.com>
 Build-Depends:
   cmake,
   g++,
-  libkf5webengineviewer-dev,
+  libkf5webengineviewer-dev | libkpim6webengineviewer6,
   libmpv-dev,
   libqt5webview5-dev,
   libqt5opengl5-dev,
