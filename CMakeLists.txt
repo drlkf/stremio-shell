@@ -5,7 +5,7 @@ if(APPLE)
   set(HAVE_FLAG_SEARCH_PATHS_FIRST 0)
 endif()
 
-project(stremio VERSION "4.4.170")
+project(stremio VERSION "4.4.171")
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/CMakeModules/")
 
@@ -35,7 +35,7 @@ set(SOURCES
 set(MPV_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/deps/libmpv/include)
 if(WIN32)
   list(APPEND SOURCES stremio.rc)
-  set(QT_DEFAULT_MAJOR_VERSION 6)
+  set(QT_DEFAULT_MAJOR_VERSION 5)
   set(ENV{Qt6_DIR} $ENV{QTDIR})
   set(MPV_LIBRARY_mpv ${CMAKE_CURRENT_SOURCE_DIR}/deps/libmpv/win32/mpv.lib)
 endif()
@@ -108,14 +108,14 @@ target_include_directories(${PROJECT_NAME} PRIVATE
 )
 
 target_link_libraries(${PROJECT_NAME} LINK_PUBLIC
-  Qt6::Qml
-  Qt6::Quick
-  Qt6::Network
-  Qt6::Widgets
-  Qt6::WebEngine
-  Qt6::WebChannel
-  Qt6::DBus
-  Qt6::OpenGL
+  Qt5::Qml
+  Qt5::Quick
+  Qt5::Network
+  Qt5::Widgets
+  Qt5::WebEngine
+  Qt5::WebChannel
+  Qt5::DBus
+  Qt5::OpenGL
   SingleApplication::SingleApplication
   OpenSSL::Crypto
   ${MPV_LIBRARY}
