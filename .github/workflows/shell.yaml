@@ -99,16 +99,16 @@ jobs:
       - name: Setup keychain
         run: if [ "$DEPLOY" = "true" ]; then source ./mac/keychain_profile; fi
 
-      - name: Sign App
-        run: |
-          if [ "$DEPLOY" = "true" ]; then codesign --deep --force -v -s $APP_IDENTITY --entitlements ./mac/entitlements.plist --options runtime ./Stremio.app; fi
+#      - name: Sign App
+#        run: |
+#          if [ "$DEPLOY" = "true" ]; then codesign --deep --force -v -s $APP_IDENTITY --entitlements ./mac/entitlements.plist --options runtime ./Stremio.app; fi
 
-      - name: Notarizing
-        env:
-          NOTARIZATION_PWD: ${{ secrets.NOTARIZATION_PWD }}
-          TEAM_ID: ${{ secrets.TEAM_ID }}
-        run: |
-          if [ "$DEPLOY" = "true" ]; then ./mac/notarizer.sh Stremio.app "ivo@linvo.com" "$NOTARIZATION_PWD" "$TEAM_ID"; fi
+#      - name: Notarizing
+#        env:
+#          NOTARIZATION_PWD: ${{ secrets.NOTARIZATION_PWD }}
+#          TEAM_ID: ${{ secrets.TEAM_ID }}
+#        run: |
+#          if [ "$DEPLOY" = "true" ]; then ./mac/notarizer.sh Stremio.app "ivo@linvo.com" "$NOTARIZATION_PWD" "$TEAM_ID"; fi
 
       - name: Pack
         run: |
@@ -116,9 +116,9 @@ jobs:
           sed -ie 's/"title": "Stremio.*"/"title": "Stremio '$SHELL_VERSION'"/' ./mac/appdmg.json
           appdmg ./mac/appdmg.json "$DMG_PATH"
 
-      - name: Sign Dmg
-        run: |
-          if [ "$DEPLOY" = "true" ]; then codesign --deep --force -v -s $APP_IDENTITY "$DMG_PATH"; fi
+#      - name: Sign Dmg
+#        run: |
+#          if [ "$DEPLOY" = "true" ]; then codesign --deep --force -v -s $APP_IDENTITY "$DMG_PATH"; fi
 
       - name: Store DMG
         uses: actions/upload-artifact@v4
