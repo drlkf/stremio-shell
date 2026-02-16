@@ -30,7 +30,7 @@ copy build\*.exe dist-win
 copy windows\*.dll dist-win
 copy windows\*.exe dist-win
 copy windows\DS\* dist-win
-copy c:\OpenSSL-Win32\bin\libcrypto-3.dll dist-win
+copy "C:\Program Files (x86)\OpenSSL-Win32\libcrypto-3.dll" dist-win
 windeployqt --release --no-compiler-runtime --qmldir=. ./dist-win/stremio.exe
 "C:\Program Files (x86)\NSIS\makensis.exe" windows\installer\windows-installer.nsi
 ENDLOCAL
