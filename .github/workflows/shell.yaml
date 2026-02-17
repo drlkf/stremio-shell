@@ -70,7 +70,7 @@ jobs:
         run: |
           cp ./mac/ffmpeg $DEST_DIR/
           cp ./mac/ffprobe $DEST_DIR/
-          cat ./mac/node > $DEST_DIR/node
+          unzip ./mac/node.zip -d $DEST_DIR
           chmod +w $DEST_DIR/ffmpeg
           chmod +w $DEST_DIR/ffprobe
           chmod +wx $DEST_DIR/node
