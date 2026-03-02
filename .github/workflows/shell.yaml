@@ -13,8 +13,8 @@ jobs:
         os: [macOS-15-intel]
       #  node: ['8']
     env:
-      APP_IDENTITY: "5758FFF7E17363FB160E351598030EE7A20988BD"
-      CERT_PASS: ${{ secrets.APPLE_DEVELOPER_CERT_PASS_2 }}
+      APP_IDENTITY: "73300DD297F59AEB5D666172E32BD9C2A710E494"
+      CERT_PASS: ${{ secrets.CERT_PASS_2 }}
       DEST_DIR: ./build/stremio.app/Contents/MacOS
       TAG: master
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
