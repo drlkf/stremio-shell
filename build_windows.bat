@@ -11,9 +11,10 @@ SET BUILD_DIR=build
 :: Set up VS environment
 CALL "C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\VC\Auxiliary\Build\vcvarsall.bat" x86
 
-IF NOT EXIST "%BUILD_DIR%" mkdir "%BUILD_DIR%"
+rd /s/q "%BUILD_DIR%"
+mkdir "%BUILD_DIR%"
 PUSHD "%BUILD_DIR%"
-
+set MAKE_BUILD_TYPE=Release
 cmake -G"NMake Makefiles" -DCMAKE_BUILD_TYPE=Release ..
 ::exit /b
 cmake --build .
@@ -33,6 +34,7 @@ copy windows\DS\* dist-win
 copy "C:\Program Files (x86)\OpenSSL-Win32\libcrypto-3.dll" dist-win
 pwsh -ExecutionPolicy ByPass -command "Get-ChildItem dist-win | Where-Object Name -Match '\.(dll|exe)$' | Get-AuthenticodeSignature | Where-Object -Property Status -Value NotSigned -EQ | ForEach-Object { signtool sign /fd SHA256 /t http://timestamp.digicert.com /n 'Smart Code OOD' $_.Path }"
 windeployqt --release --no-compiler-runtime --qmldir=. ./dist-win/stremio.exe
+
 "C:\Program Files (x86)\NSIS\makensis.exe" windows\installer\windows-installer.nsi
 signtool sign /fd SHA256 /t http://timestamp.digicert.com /n "Smart Code OOD" *.exe
 ENDLOCAL
