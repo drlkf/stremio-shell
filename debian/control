@@ -33,7 +33,7 @@ Depends:
   qml-module-qtwebengine (>=5.9.5),
   librubberband2 (>=1.8.1),
   libuchardet0 (>=0.0.6),
-  libfdk-aac2 (>=2.0.2),
+  libfdk-aac2 (>=2.0.2) | libfdk-aac2t64 (>=2.0.2),
   librsvg2-bin
 Provides: stremio
 Description: The next generation media center
