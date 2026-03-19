@@ -1,3 +1,16 @@
+stremio (4.4.182) stable; urgency=medium
+
+  * fix: fix deb build on trixie
+  * ci: add semantic-release configuration
+  * build: fix build on trixie
+  * build: add missing svg convert util to debian control
+  * build: add missing libqt5opengl in debian control file
+  * docs: add disclaimer about required non-free component
+  * fix: fix desktop entry icon in debian packaging
+  * build: add debian package files
+
+ -- drlkf <drlkf@drlkf.net>  Thu, 19 Mar 2026 23:30:24 +0100
+
 stremio (4.4.168) stable; urgency=medium
 
   * init
